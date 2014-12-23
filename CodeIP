@@ -33,6 +33,8 @@ if validar1 == 3:
         #Comparamos para saber que clase de IP es
         # print (first)
         if first <= 127:
+            if first == 127:
+                print ("IP de Loopback")
             print ("la ip ", ip ," es clase A \n")
         elif first >= 128 and first <= 191:
             print ("la ip ", ip , " es clase B \n")
