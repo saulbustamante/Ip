@@ -1,28 +1,48 @@
-#Ip
-#== Programa en Python para redes Ip saber que clase es y calculo de sub-redes 
 #Programa Para Subnetear
 # Creado por Saúl
 # Leemos la Direccion IP
-ip = "192.168.1.1"
+print ("Escribe la ip : Ejem: 172.16.1.1 \n")
+ip = input("IP : ")
 
-# Separamos la Ip por "."
-# Ejemplo ['192', '168', '1', '1']
-ip.split(".")
-#print (ip.split("."))
+#Dato para Hacer Pruebas Quitar cuando este listo
+#ip = "254.255.1.1"
 
+#validad que sea una ipv4
+validar1 = int((ip.count(".")))
+#print (ip.count("."))
+if validar1 == 3:
+    # Separamos la Ip por "."
+    # Ejemplo ['192', '168', '1', '1']
+    ip.split(".")
+    #print (ip.split("."))
 
-#Separamos el Primer Octeto 
-first= ip.split(".")[0]
-first = int(first)
-print (first)
+    #Separamos los octetos y los convertimos a entero
+    first= ip.split(".")[0]
+    segundo = ip.split(".")[1]
+    tercero = ip.split(".")[2]
+    cuarto = ip.split(".")[3]
 
-#Comparamos que clase de IP es
-
-if first <= 127:
-    print ("la ip ", ip ," es clase A")
-elif first >= 128 and first <= 191:
-    print ("la ip ", ip , " es clase B")
-elif first >= 192 and first <= 223:
-    print ("la ip ", ip , " es clase C")
+    first = int(first)
+    segundo = int(segundo)
+    tercero = int (tercero)
+    cuarto = int (cuarto)
+   
+    #Validar los Octetos que sean menor a 254
+    if first <= 255 and segundo <= 255 and tercero <= 255 and cuarto <= 255:
+        #print (first, segundo , tercero , cuarto)
+        #Comparamos para saber que clase de IP es
+        # print (first)
+        if first <= 127:
+            print ("la ip ", ip ," es clase A \n")
+        elif first >= 128 and first <= 191:
+            print ("la ip ", ip , " es clase B \n")
+        elif first >= 192 and first <= 223:
+            print ("la ip ", ip , " es clase C \n")
+        elif first >= 224 and first <= 239:
+            print ("la ip ", ip , " es clase D \n")
+        else:
+            print ("la ip" , ip , " es clase E")
+    else:
+        print ("La ip no es Valida")
 else:
-    print ("la ip" , ip , " es clase D o E")
+    print ("No es una ipv4 Valida con el formato Ejemplo: 192.168.1.1 ")
