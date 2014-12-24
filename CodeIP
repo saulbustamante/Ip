@@ -35,10 +35,16 @@ if validar1 == 3:
         if first <= 127:
             if first == 127:
                 print ("IP de Loopback")
+            if first == 10:
+                print ("IP privada solo para redes Locales")
             print ("la ip ", ip ," es clase A \n")
         elif first >= 128 and first <= 191:
+            if first == 172 and segundo >= 16 and segundo <= 31:
+                print ( "IP privada solo para redes Locales")
             print ("la ip ", ip , " es clase B \n")
         elif first >= 192 and first <= 223:
+            if first == 192 and segundo == 168:
+                print ("Ip privada solo para redes Locales")
             print ("la ip ", ip , " es clase C \n")
         elif first >= 224 and first <= 239:
             print ("la ip ", ip , " es clase D \n")
